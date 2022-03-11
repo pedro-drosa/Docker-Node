@@ -1,7 +1,8 @@
 import FindAllUsersService from "../services/FindAllUsersService.js";
+import CreateUserService from "../services/CreateUserService.js";
 
 export default class UsersController {
-  index(req, res) {
+  async index(req, res) {
     const { id } = req.params;
     return res.json({ message: `show a single user with id: ${id}` });
   }
@@ -9,5 +10,11 @@ export default class UsersController {
   async show(req, res) {
     const users = await FindAllUsersService.execute();
     return res.json(users);
+  }
+
+  async create(req, res) {
+    const { name, email, password } = req.body;
+    const user = await CreateUserService.execute({ name, email, password });
+    return res.json(user);
   }
 }

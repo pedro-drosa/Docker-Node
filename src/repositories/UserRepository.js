@@ -1,8 +1,12 @@
 import User from "../models/User.model.js";
 
 class UserRepository {
-  async findAllUsers() {
-    return await User.find();
+  findAllUsers() {
+    return User.find();
+  }
+
+  createUser({ name, email, password }) {
+    return User.create({ name, email, password });
   }
 }
 
