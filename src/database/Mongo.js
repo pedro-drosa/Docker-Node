@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 class Mongo {
   async connectToDatabase(uri) {
     try {
       await mongoose.connect(uri);
-      console.info("⚡ Connected to database");
+      console.info('⚡ Connected to database');
     } catch (error) {
-      console.error("⛔ Error trying to connect to database");
+      console.error('⛔ Error trying to connect to database');
     }
   }
 }
