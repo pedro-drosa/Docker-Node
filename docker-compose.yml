@@ -1,0 +1,19 @@
+version: "3"
+services:
+  api-express:
+    container_name: api-express
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app/src
+
+  mongo:
+    image: mongo
+    container_name: db-mongo
+    ports:
+      - 27017:27017
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
