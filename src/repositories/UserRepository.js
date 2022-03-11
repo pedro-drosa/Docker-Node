@@ -8,6 +8,10 @@ class UserRepository {
   createUser({ name, email, password }) {
     return User.create({ name, email, password });
   }
+
+  removeUser(id) {
+    return User.deleteOne({ id });
+  }
 }
 
 export default UserRepository;
