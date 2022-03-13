@@ -7,6 +7,7 @@ services:
       - '5000:5000'
     volumes:
       - .:/app/src
+      - /app/src/node_modules
 
   mongo:
     image: mongo
