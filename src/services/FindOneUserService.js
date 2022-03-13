@@ -7,7 +7,7 @@ class FindOneUserService {
     try {
       return await userRepository.findOneUser(id);
     } catch (error) {
-      throw new Error('No user found, check data and try again');
+      throw new Error('data request error');
     }
   }
 }

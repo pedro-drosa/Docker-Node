@@ -8,7 +8,9 @@ export default class UsersController {
     try {
       const { id } = req.params;
       const user = await FindOneUserService.execute(id);
-      return res.json(user);
+
+      if (!user) throw new Error('no user found');
+      else return res.json(user);
     } catch (error) {
       return res.json({ error: error.message });
     }
