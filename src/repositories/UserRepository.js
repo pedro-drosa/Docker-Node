@@ -5,8 +5,12 @@ class UserRepository {
     return User.find();
   }
 
-  findOneUser(id) {
+  findOneUserById(id) {
     return User.findById(id);
+  }
+
+  findOneUserByNameOrEmail(name, email) {
+    return User.findOne({ $or: [{ name }, { email }] }).exec();
   }
 
   createUser({ name, email, password }) {

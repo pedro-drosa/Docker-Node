@@ -5,7 +5,7 @@ const userRepository = new UserRepository();
 class FindOneUserService {
   static async execute(id) {
     try {
-      return await userRepository.findOneUser(id);
+      return await userRepository.findOneUserById(id);
     } catch (error) {
       throw new Error('data request error');
     }
