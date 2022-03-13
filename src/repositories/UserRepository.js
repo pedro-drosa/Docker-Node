@@ -10,7 +10,7 @@ class UserRepository {
   }
 
   findOneUserByNameOrEmail(name, email) {
-    return User.findOne({ $or: [{ name }, { email }] }).exec();
+    return User.findOne({ $or: [{ name }, { email }] });
   }
 
   createUser({ name, email, password }) {
